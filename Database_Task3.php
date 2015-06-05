@@ -4,6 +4,7 @@
     </head>
     <body>
         <?php
+
         class Database {
 
             public $host;
@@ -31,28 +32,28 @@
             }
 
             public function select($username) {
-                $sql="SELECT * FROM details where username LIKE '%$username'";
+                $sql = "SELECT * FROM details where username LIKE '%$username'";
                 if (!$sql) {
                     echo mysql_error();
+                } else if (mysql_num_rows($sql) <= 0) {
+                    echo "This user does not exist.";
                 }
-
                 $result = mysql_query($sql);
+
                 while ($row = mysql_fetch_array($result)) {
                     print_r[$row];
-                    echo "Username: " . $row["username"] . " " . "City: ".$row["city"]."<br>";
+                    echo "Username: " . $row["username"] . " " . "City: " . $row["city"] . "<br>";
                 }
             }
 
-            
-     //For Task 3, to prevent modification of string by user. 
-           public function clean_String($str)
-           {
-               if(get_magic_quotes_gpc())
-               {
-                   $str=  stripslashes($str);
-               }
-               return mysql_real_escape_string($str);
-           }
+            //For Task 3, to prevent modification of string by user. 
+            public function clean_String($str) {
+                if (get_magic_quotes_gpc()) {
+                    $str = stripslashes($str);
+                }
+                return mysql_real_escape_string($str);
+            }
+
         }
         ?>
 
