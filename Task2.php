@@ -39,7 +39,7 @@
 
                 $result = mysql_query($sql);
                 while ($row = mysql_fetch_array($result)) {
-                    print_r[$row];
+                   // print_r[$row];
                     echo "Coupon: " . $row["coupon"] . " " . "<br>";
                 }
             }
@@ -49,8 +49,6 @@
                 $query = "SELECT * FROM coupons WHERE coupon LIKE '%$coupon%'";
                 if (!$query) {
                     echo mysql_error();
-                } else if (mysql_num_rows($query) <= 0) {
-                    echo "This coupon does not exist.";
                 }
                 $result = mysql_query($query);
 

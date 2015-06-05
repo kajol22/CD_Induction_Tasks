@@ -35,13 +35,11 @@
                 $sql = "SELECT * FROM details where username LIKE '%$username'";
                 if (!$sql) {
                     echo mysql_error();
-                } else if (mysql_num_rows($sql) <= 0) {
-                    echo "This user does not exist.";
                 }
                 $result = mysql_query($sql);
 
                 while ($row = mysql_fetch_array($result)) {
-                    print_r[$row];
+                    //print_r[$row];
                     echo "Username: " . $row["username"] . " " . "City: " . $row["city"] . "<br>";
                 }
             }
