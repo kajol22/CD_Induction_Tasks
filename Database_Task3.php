@@ -37,23 +37,19 @@
                     echo mysql_error();
                 }
                 $result = mysql_query($sql);
-               if(mysql_num_rows($result))
-               {
+                if (mysql_num_rows($result)) {
                     while ($row = mysql_fetch_array($result)) {
-                    //print_r[$row];
-                    echo "Username: " . $row["username"] . " " . "City: " . $row["city"] . "<br>";
+                        //print_r[$row];
+                        echo "Username: " . $row["username"] . " " . "City: " . $row["city"] . "<br>";
+                    }
+                } else {
+                    echo "No results found";
                 }
-               }
-               else
-               {
-                   echo "No results found";
-               }
-               
             }
 
             //For Task 3, to prevent modification of string by user. 
             public function clean_String($str) {
-                
+
                 return mysql_real_escape_string($str);
             }
 

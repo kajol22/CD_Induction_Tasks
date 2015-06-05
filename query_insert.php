@@ -9,7 +9,6 @@ require_once 'Task2.php';
 if (isset($_POST['coupon']) && isset($_POST['offer'])) {
     $coupon = $_POST['coupon'];
     $offer = $_POST['offer'];
-
     $db1 = new Database();
     $db1->connect();
     $db1->insert($coupon, $offer);
