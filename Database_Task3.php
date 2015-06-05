@@ -37,11 +37,18 @@
                     echo mysql_error();
                 }
                 $result = mysql_query($sql);
-
-                while ($row = mysql_fetch_array($result)) {
+               if(mysql_num_rows($result))
+               {
+                    while ($row = mysql_fetch_array($result)) {
                     //print_r[$row];
                     echo "Username: " . $row["username"] . " " . "City: " . $row["city"] . "<br>";
                 }
+               }
+               else
+               {
+                   echo "No results found";
+               }
+               
             }
 
             //For Task 3, to prevent modification of string by user. 

@@ -39,7 +39,7 @@
 
                 $result = mysql_query($sql);
                 while ($row = mysql_fetch_array($result)) {
-                   // print_r[$row];
+                    // print_r[$row];
                     echo "Coupon: " . $row["coupon"] . " " . "<br>";
                 }
             }
@@ -51,12 +51,12 @@
                     echo mysql_error();
                 }
                 $result = mysql_query($query);
-
-                if (!$result) {
-                    die("couldnt");
-                }
-                while ($row = mysql_fetch_array($result)) {
-                    echo "Coupon: " . $row["coupon"] . " " . "Offer: " . $row["offer"] . "<br>";
+                if (mysql_num_rows($result)) {
+                    while ($row = mysql_fetch_array($result)) {
+                        echo "Coupon: " . $row["coupon"] . " " . "Offer: " . $row["offer"] . "<br>";
+                    }
+                } else {
+                    echo "No results found!";
                 }
             }
 
