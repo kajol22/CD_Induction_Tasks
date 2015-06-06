@@ -32,7 +32,7 @@
             }
 
             public function select($username) {
-                $sql = "SELECT * FROM details where username LIKE '%($username)'";
+                $sql = "SELECT * FROM details where username LIKE '%$username'";
                 if (!$sql) {
                     echo mysql_error();
                 }
