@@ -20,7 +20,7 @@
                 $this->database = "Users";
             }
 
-            public function connect() {
+           public function connect() {
                 $this->con = mysql_connect($this->host, $this->username, $this->password);
                 if (!$this->con) {
                     echo mysql_error();
